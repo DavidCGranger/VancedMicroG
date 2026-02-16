@@ -18,6 +18,12 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 
+configurations.all {
+    resolutionStrategy {
+        force 'org.slf4j:slf4j-api:1.7.36'
+    }
+}
+
 dependencies {
     implementation 'com.squareup.wire:wire-runtime:3.6.1'
     implementation 'de.hdodenhof:circleimageview:3.1.0'
