@@ -46,8 +46,10 @@ jobs:
       - name: Build Debug APK
         run: ./gradlew assembleDebug
 
-      - name: Upload Debug APK
+      - name: Upload APKs
         uses: actions/upload-artifact@v4
         with:
-          name: MicroG-Debug-APK
-          path: play-services-core/build/outputs/apk/debug/play-services-core-debug.apk
+          name: MicroG-APKs
+          path: |
+            play-services-core/build/outputs/apk/debug/play-services-core-debug.apk
+            play-services-core/build/outputs/apk/release/play-services-core-release-unsigned.apk
