@@ -45,7 +45,10 @@ jobs:
 
       - name: Build Debug APK
         run: ./gradlew assembleDebug
-
+        
+      - name: Build Unsigned Release APK
+        run: ./gradlew assembleRelease
+        
       - name: Upload APKs
         uses: actions/upload-artifact@v4
         with:
