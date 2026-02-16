@@ -1,6 +1,7 @@
 name: Debug APK Builder
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - master
