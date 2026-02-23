@@ -89,7 +89,7 @@ public class LoginActivity extends AssistantActivity {
     public static final int STATUS_BAR_DISABLE_BACK = 0x00400000;
 
     private static final String TAG = "GmsAuthLoginBrowser";
-    private static final String EMBEDDED_SETUP_URL = "https://accounts.google.com/EmbeddedSetup";
+    private static final String EMBEDDED_SETUP_URL = "https://accounts.google.com/v3/signin/identifier?continue=https%3A%2F%2Faccounts.google.com%2Fo%2Foauth2%2Fprogrammatic_auth%3Fclient_id%3D1070009224336-sdh77n7uot3oc99ais00jmuft6sk2fg9.apps.googleusercontent.com%26scope%3Dhttps%3A%2F%2Fwww.google.com%2Faccounts%2FOAuthLogin%26access_type%3Doffline%26set_oauth_token_cookie%3Dtrue&dsh=S1090631583%3A1771014381173582&faa=1&followup=https%3A%2F%2Faccounts.google.com%2Fo%2Foauth2%2Fprogrammatic_auth%3Fclient_id%3D1070009224336-sdh77n7uot3oc99ais00jmuft6sk2fg9.apps.googleusercontent.com%26scope%3Dhttps%3A%2F%2Fwww.google.com%2Faccounts%2FOAuthLogin%26access_type%3Doffline%26set_oauth_token_cookie%3Dtrue&ifkv=ASfE1-qs883MAjI2xgdGywTFc4lGW8JHJNYPjYNIHYwQ_8qa-7olzJvEGjiUr9tWa3eGiRCaF2Lj&passive=1209600&rart=ANgoxcdk1pT3XPNAAwTZ-jaNtKX1iizD43e5Ry8sgwc_avVtZAms-ZvUhOvZXsb1_eyGM8JqWsO4WL2DE4jZIImRsiS1vzTwog&nojavascript=1&flowName=WebLiteSignIn&flowEntry=ServiceLogin";
     private static final String PROGRAMMATIC_AUTH_URL = "https://accounts.google.com/o/oauth2/programmatic_auth";
     private static final String GOOGLE_SUITE_URL = "https://accounts.google.com/signin/continue";
     private static final String MAGIC_USER_AGENT = " MinuteMaid";
@@ -157,6 +157,10 @@ public class LoginActivity extends AssistantActivity {
             setSpoofButtonText(R.string.brand_spoof_button);
             setBackButtonText(android.R.string.cancel);
             setNextButtonText(R.string.auth_sign_in);
+        }
+        if (!getIntent().hasExtra(EXTRA_TOKEN)) {
+            // Auto-trigger standard login
+            onNextButtonClicked();
         }
     }
 
