@@ -25,6 +25,7 @@ configurations.all {
 }
 
 dependencies {
+    implementation "androidx.multidex:multidex:2.0.1"
     implementation 'com.squareup.wire:wire-runtime:3.6.1'
     implementation 'de.hdodenhof:circleimageview:3.1.0'
     implementation "info.armills.chromecast-java-api-v2:api-v2-raw-request:0.10.4-raw-request-1"
@@ -59,6 +60,9 @@ android {
     buildToolsVersion "$androidBuildVersionTools"
 
     defaultConfig {
+
+        multiDexEnabled true
+
         versionName version
         versionCode appVersionCode
 
