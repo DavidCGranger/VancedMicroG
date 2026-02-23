@@ -4,10 +4,10 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - master
+      - sdk-19
   pull_request:
     branches:
-      - master
+      - sdk-19
 
 jobs:
   build:
