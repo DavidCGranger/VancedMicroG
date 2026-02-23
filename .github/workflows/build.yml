@@ -1,4 +1,4 @@
-name: Debug APK Builder
+name: APK Builder
 
 on:
   workflow_dispatch:
@@ -30,7 +30,7 @@ jobs:
 
       - name: Install NDK 21.0.6113669
         run: echo "y" | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --install "ndk;21.0.6113669"
-        
+
       - name: Grant execute permissions
         run: chmod +x ./gradlew
 
@@ -39,10 +39,10 @@ jobs:
 
       - name: Build Debug APK
         run: ./gradlew assembleDebug
-        
+
       - name: Build Unsigned Release APK
         run: ./gradlew assembleRelease
-        
+
       - name: Upload APKs
         uses: actions/upload-artifact@v4
         with:
