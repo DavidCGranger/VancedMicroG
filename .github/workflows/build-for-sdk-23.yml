@@ -1,13 +1,13 @@
-name: SDK 23 APK Builder
+name: SDK 19 APK Builder
 
 on:
   workflow_dispatch:
   push:
     branches:
-      - sdk-23
+      - sdk-19
   pull_request:
     branches:
-      - sdk-23
+      - sdk-19
 
 jobs:
   build:
