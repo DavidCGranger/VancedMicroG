@@ -20,10 +20,11 @@ public enum GmsService {
     UNKNOWN(-2),
     ANY(-1),
     PEOPLE(5, "com.google.android.gms.people.service.START"),
+    LOCATION(6),
     ACCOUNT(9, "com.google.android.gms.accounts.ACCOUNT_SERVICE"),
     CAST(10, "com.google.android.gms.cast.service.BIND_CAST_DEVICE_CONTROLLER_SERVICE"),
     ADDRESS(12, "com.google.android.gms.identity.service.BIND"),
-    AUTH(16, "com.google.android.gms.auth.service.START"),
+    AUTH_PROXY(16, "com.google.android.gms.auth.service.START"),
     LIGHTWEIGHT_INDEX(19, "com.google.android.gms.icing.LIGHTWEIGHT_INDEX_SERVICE"),
     INDEX(21, "com.google.android.gms.icing.INDEX_SERVICE"),
     LOCATION_REPORTING(22, "com.google.android.gms.location.reporting.service.START", "com.google.android.location.reporting.service.START"),
@@ -36,6 +37,7 @@ public enum GmsService {
     SEARCH_CORPORA(36),
     COMMON(39, "com.google.android.gms.common.service.START"),
     CLEARCUT_LOGGER(40, "com.google.android.gms.clearcut.service.START"),
+    USAGE_REPORTING(41, "com.google.android.gms.usagereporting.service.START"),
     SIGN_IN(44, "com.google.android.gms.signin.service.START"),
     CONTEXT_MANAGER(47, "com.google.android.contextmanager.service.ContextManagerService.START"),
     LIGHTWEIGHT_NETWORK_QUALITY(50, "com.google.android.gms.herrevad.services.LightweightNetworkQualityAndroidService.START"),
@@ -59,6 +61,11 @@ public enum GmsService {
         this.SERVICE_ID = serviceId;
         this.ACTION = actions.length > 0 ? actions[0] : null;
         this.SECONDARY_ACTIONS = actions;
+    }
+
+    public interface ADVERTISING_ID {
+        // Has no service id
+        String ACTION = "com.google.android.gms.ads.identifier.service.START";
     }
 
     public static GmsService byServiceId(int serviceId) {

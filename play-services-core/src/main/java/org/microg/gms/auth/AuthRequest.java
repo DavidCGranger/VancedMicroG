@@ -16,19 +16,20 @@
 
 package org.microg.gms.auth;
 
+import static org.microg.gms.common.HttpFormClient.RequestContent;
+import static org.microg.gms.common.HttpFormClient.RequestHeader;
+
 import android.content.Context;
 
 import org.microg.gms.checkin.LastCheckinInfo;
-import org.microg.gms.common.Build;
 import org.microg.gms.common.Constants;
 import org.microg.gms.common.HttpFormClient;
 import org.microg.gms.common.Utils;
+import org.microg.gms.profile.Build;
+import org.microg.gms.profile.ProfileManager;
 
 import java.io.IOException;
 import java.util.Locale;
-
-import static org.microg.gms.common.HttpFormClient.RequestContent;
-import static org.microg.gms.common.HttpFormClient.RequestHeader;
 
 public class AuthRequest extends HttpFormClient.Request {
     private static final String SERVICE_URL = "https://android.googleapis.com/auth";
@@ -91,10 +92,11 @@ public class AuthRequest extends HttpFormClient.Request {
         userAgent = String.format(USER_AGENT, deviceName, buildVersion);
     }
 
-    public AuthRequest build(Build build) {
-        sdkVersion = build.sdk;
-        deviceName = build.device;
-        buildVersion = build.id;
+    public AuthRequest build(Context context) {
+        ProfileManager.ensureInitialized(context);
+        sdkVersion = Build.VERSION.SDK_INT;
+        deviceName = Build.DEVICE;
+        buildVersion = Build.ID;
         return this;
     }
 
@@ -111,7 +113,7 @@ public class AuthRequest extends HttpFormClient.Request {
     }
 
     public AuthRequest fromContext(Context context) {
-        build(Utils.getBuild(context));
+        build(context);
         locale(Utils.getLocale(context));
         androidIdHex = Long.toHexString(LastCheckinInfo.read(context).getAndroidId());
         return this;
@@ -190,7 +192,7 @@ public class AuthRequest extends HttpFormClient.Request {
         this.droidguardResults = droidguardResults;
         return this;
     }
-
+    
     public AuthResponse getResponse() throws IOException {
         return HttpFormClient.request(SERVICE_URL, this, AuthResponse.class);
     }

@@ -6,6 +6,7 @@
 
 package org.microg.gms.ui
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.os.Handler
 import android.text.format.DateUtils
@@ -40,6 +41,7 @@ class PushNotificationPreferencesFragment : PreferenceFragmentCompat() {
         addPreferencesFromResource(R.xml.preferences_push_notifications)
     }
 
+    @SuppressLint("RestrictedApi")
     override fun onBindPreferences() {
         pushStatusCategory = preferenceScreen.findPreference("prefcat_push_status") ?: pushStatusCategory
         pushStatus = preferenceScreen.findPreference("pref_push_status") ?: pushStatus
@@ -67,8 +69,9 @@ class PushNotificationPreferencesFragment : PreferenceFragmentCompat() {
     private fun updateStatus() {
         try {
             handler.postDelayed(updateRunnable, UPDATE_INTERVAL)
+            val appContext = requireContext().applicationContext
             lifecycleScope.launchWhenStarted {
-                val statusInfo = getGcmServiceInfo(requireContext())
+                val statusInfo = getGcmServiceInfo(appContext)
                 pushStatusCategory.isVisible = statusInfo.configuration.enabled
                 pushStatus.summary = if (statusInfo.connected) {
                     getString(R.string.gcm_network_state_connected, DateUtils.getRelativeTimeSpanString(statusInfo.startTimestamp, System.currentTimeMillis(), 0))
@@ -80,21 +83,22 @@ class PushNotificationPreferencesFragment : PreferenceFragmentCompat() {
     }
 
     private fun updateContent() {
+        val appContext = requireContext().applicationContext
+        val context = requireContext()
         lifecycleScope.launchWhenResumed {
-            val context = requireContext()
             val (apps, showAll) = withContext(Dispatchers.IO) {
                 val apps = database.appList.sortedByDescending { it.lastMessageTimestamp }
                 val res = apps.map { app ->
-                    app to context.packageManager.getApplicationInfoIfExists(app.packageName)
+                    app to appContext.packageManager.getApplicationInfoIfExists(app.packageName)
                 }.mapNotNull { (app, info) ->
                     if (info == null) null else app to info
                 }.take(3).mapIndexed { idx, (app, applicationInfo) ->
-                    val pref = AppIconPreference(context)
+                    val pref = AppIconPreference(appContext)
                     pref.order = idx
-                    pref.title = applicationInfo.loadLabel(context.packageManager)
-                    pref.icon = applicationInfo.loadIcon(context.packageManager)
+                    pref.title = applicationInfo.loadLabel(appContext.packageManager)
+                    pref.icon = applicationInfo.loadIcon(appContext.packageManager)
                     pref.onPreferenceClickListener = Preference.OnPreferenceClickListener {
-                        findNavController().navigate(requireContext(), R.id.openGcmAppDetails, bundleOf(
+                        findNavController().navigate(context, R.id.openGcmAppDetails, bundleOf(
                                 "package" to app.packageName
                         ))
                         true

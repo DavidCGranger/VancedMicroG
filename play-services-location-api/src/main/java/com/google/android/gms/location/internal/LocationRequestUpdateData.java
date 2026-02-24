@@ -20,7 +20,6 @@ import android.app.PendingIntent;
 
 import com.google.android.gms.location.ILocationCallback;
 import com.google.android.gms.location.ILocationListener;
-import com.google.android.gms.location.internal.IFusedLocationProviderCallback;
 
 import org.microg.safeparcel.AutoSafeParcelable;
 import org.microg.safeparcel.SafeParceled;
@@ -30,25 +29,25 @@ public class LocationRequestUpdateData extends AutoSafeParcelable {
     public static final int REQUEST_UPDATES = 1;
     public static final int REMOVE_UPDATES = 2;
 
-    @Field(1000)
+    @SafeParceled(1000)
     private int versionCode;
 
-    @Field(1)
+    @SafeParceled(1)
     public int opCode;
 
-    @Field(2)
+    @SafeParceled(2)
     public LocationRequestInternal request;
 
-    @Field(3)
+    @SafeParceled(3)
     public ILocationListener listener;
 
-    @Field(4)
+    @SafeParceled(4)
     public PendingIntent pendingIntent;
 
-    @Field(5)
+    @SafeParceled(5)
     public ILocationCallback callback;
 
-    @Field(6)
+    @SafeParceled(6)
     public IFusedLocationProviderCallback fusedLocationProviderCallback;
 
     @Override
