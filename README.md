@@ -1,6 +1,6 @@
 # Fork
 
-This fork fixes login on microG.
+This fork fixes login on old versions of YouTube Vanced.
 
 Current pre-releases also integrate support for older versions of Android. 
 Credits go to https://gist.github.com/Smu1zel/b55551cab92141f13f5590b8c84ffefc!
