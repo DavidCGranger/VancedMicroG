@@ -1,3 +1,10 @@
+# Fork
+
+This fork fixes login on microG.
+
+Current pre-releases also integrate support for older versions of Android. 
+Credits go to https://gist.github.com/Smu1zel/b55551cab92141f13f5590b8c84ffefc!
+
 # Vanced MicroG
 
 ![Build Status](https://github.com/YTVanced/VancedMicroG/workflows/Debug%20APK%20Builder/badge.svg)
