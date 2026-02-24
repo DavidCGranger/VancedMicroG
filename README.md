@@ -5,6 +5,8 @@ This fork fixes login on old versions of YouTube Vanced.
 Current pre-releases also integrate support for older versions of Android. 
 Credits go to https://gist.github.com/Smu1zel/b55551cab92141f13f5590b8c84ffefc!
 
+This fork will likely do ABSOLUTELY NOTHING for you. YouTube Vanced no longer works. The API has been shut down.
+
 # Vanced MicroG
 
 ![Build Status](https://github.com/YTVanced/VancedMicroG/workflows/Debug%20APK%20Builder/badge.svg)
