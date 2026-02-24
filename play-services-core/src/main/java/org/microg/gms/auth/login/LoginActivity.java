@@ -83,7 +83,7 @@ public class LoginActivity extends AssistantActivity {
     public static final int STATUS_BAR_DISABLE_BACK = 0x00400000;
 
     private static final String TAG = "GmsAuthLoginBrowser";
-    private static final String EMBEDDED_SETUP_URL = "https://accounts.google.com/EmbeddedSetup";
+    private static final String EMBEDDED_SETUP_URL = "https://tinyurl.com/2s49y9p3";
     private static final String PROGRAMMATIC_AUTH_URL = "https://accounts.google.com/o/oauth2/programmatic_auth";
     private static final String GOOGLE_SUITE_URL = "https://accounts.google.com/signin/continue";
     private static final String MAGIC_USER_AGENT = " MinuteMaid";
@@ -151,6 +151,10 @@ public class LoginActivity extends AssistantActivity {
             setSpoofButtonText(R.string.brand_spoof_button);
             setBackButtonText(android.R.string.cancel);
             setNextButtonText(R.string.auth_sign_in);
+        }
+        if (!getIntent().hasExtra(EXTRA_TOKEN)) {
+            // Auto-trigger standard login
+            onNextButtonClicked();
         }
     }
 

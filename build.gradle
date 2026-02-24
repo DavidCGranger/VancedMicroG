@@ -4,7 +4,7 @@
  */
 
 buildscript {
-    ext.androidMinSdk = 23
+    ext.androidMinSdk = 19
     ext.androidTargetSdk = 30
     ext.androidCompileSdk = 31
 
