@@ -27,6 +27,13 @@ allprojects {
     version = "0.2.24.260216"
     ext.appVersionCode = 260216001
     ext.isReleaseVersion = false
+
+    configurations.all {
+        resolutionStrategy {
+            force 'androidx.lifecycle:lifecycle-runtime-ktx:2.4.0'
+            force 'androidx.lifecycle:lifecycle-runtime:2.4.0'
+        }
+    }
 }
 
 subprojects {
