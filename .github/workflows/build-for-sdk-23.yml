@@ -50,3 +50,4 @@ jobs:
           path: |
             play-services-core/build/outputs/apk/debug/play-services-core-debug.apk
             play-services-core/build/outputs/apk/release/play-services-core-release-unsigned.apk
+          retention-days: 30
