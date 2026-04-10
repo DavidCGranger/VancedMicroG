@@ -1,6 +1,6 @@
 # Fork
 
-![Build Status](https://github.com/DavidCGranger/MicroG/actions/workflows/build-for-sdk-23.yml/badge.svg)
+![Build Status](https://github.com/DavidCGranger/MicroG/actions/workflows/build-for-sdk-19.yml/badge.svg)
 [![Github All Releases](https://img.shields.io/github/downloads/DavidCGranger/MicroG/total.svg)](https://github.com/DavidCGranger/MicroG/releases) [![Github All Releases](https://img.shields.io/github/v/release/DavidCGranger/MicroG.svg)](https://github.com/DavidCGranger/MicroG/releases)
 
 This fork fixes login on old versions of YouTube Vanced.
