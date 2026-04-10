@@ -29,11 +29,11 @@ android {
         sourceCompatibility = 1.8
         targetCompatibility = 1.8
     }
-
-    lintOptions {
-        // TODO: Remove MissingTranslation once we have stable strings and proper translations.
+    namespace 'org.microg.tools.ui'
+    lint {
         disable 'MissingTranslation'
     }
+
 }
 
 dependencies {

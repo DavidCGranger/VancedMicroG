@@ -26,12 +26,13 @@ android {
         targetSdkVersion androidTargetSdk
     }
 
-    lintOptions {
-        disable 'MissingTranslation'
-    }
 
     compileOptions {
         sourceCompatibility = 1.8
         targetCompatibility = 1.8
+    }
+    namespace 'org.microg.gms.net.core'
+    lint {
+        disable 'MissingTranslation'
     }
 }

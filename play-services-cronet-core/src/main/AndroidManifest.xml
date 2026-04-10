@@ -3,7 +3,7 @@
   ~ SPDX-FileCopyrightText: 2021, microG Project Team
   ~ SPDX-License-Identifier: Apache-2.0
   -->
-<manifest package="org.microg.gms.net.core">
+<manifest>
 
     <application>
     </application>

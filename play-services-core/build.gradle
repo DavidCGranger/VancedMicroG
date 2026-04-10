@@ -87,9 +87,6 @@ android {
         }
     }
 
-    lintOptions {
-        disable 'MissingTranslation', 'BatteryLife', 'ImpliedQuantity', 'MissingQuantity', 'InvalidWakeLockTag', 'Range'
-    }
 
     buildTypes {
         release {
@@ -102,9 +99,15 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-
     packagingOptions {
-        exclude 'META-INF/ASL2.0'
+        resources {
+            excludes += ['META-INF/ASL2.0']
+        }
+    }
+
+    namespace 'com.mgoogle.android.gms'
+    lint {
+        disable 'MissingTranslation', 'BatteryLife', 'ImpliedQuantity', 'MissingQuantity', 'InvalidWakeLockTag', 'Range'
     }
 }
 
