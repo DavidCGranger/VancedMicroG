@@ -9,8 +9,8 @@ This fork will likely do ABSOLUTELY NOTHING for you. YouTube Vanced no longer wo
 
 # Vanced MicroG
 
-![Build Status](https://github.com/YTVanced/VancedMicroG/workflows/Debug%20APK%20Builder/badge.svg)
-[![Github All Releases](https://img.shields.io/github/downloads/YTVanced/VancedMicroG/total.svg)](https://github.com/YTVanced/VancedMicroG/releases) [![Github All Releases](https://img.shields.io/github/release/YTVanced/VancedMicroG.svg)](https://github.com/YTVanced/VancedMicroG/releases)
+![Build Status](https://github.com/DavidCGranger/MicroG/actions/workflows/build-for-sdk-23.yml/badge.svg)
+[![Github All Releases](https://img.shields.io/github/downloads/DavidCGranger/MicroG/total.svg)](https://github.com/DavidCGranger/MicroG/releases) [![Github All Releases](https://img.shields.io/github/v/release/DavidCGranger/MicroG.svg)](https://github.com/DavidCGranger/MicroG/releases)
 
 microG GmsCore is a FLOSS (Free/Libre Open Source Software) framework to allow applications designed for Google Play Services to run on systems, where Play Services is not available.
 
