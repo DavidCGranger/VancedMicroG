@@ -1,5 +1,7 @@
 # Fork
 
+[![github](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/available/github_vector.svg)](https://github.com/DavidCGranger/MicroG/releases/latest)
+
 ![Build Status](https://github.com/DavidCGranger/MicroG/actions/workflows/build-for-sdk-19.yml/badge.svg)
 [![Github All Releases](https://img.shields.io/github/downloads/DavidCGranger/MicroG/total.svg)](https://github.com/DavidCGranger/MicroG/releases) [![Github All Releases](https://img.shields.io/github/v/release/DavidCGranger/MicroG.svg)](https://github.com/DavidCGranger/MicroG/releases)
 
